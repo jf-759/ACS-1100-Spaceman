@@ -12,9 +12,13 @@ def load_word():
     words_list = f.readlines()
     f.close()
     
+    # question for the line below: does that mean I have to put all the words in txt. on their own line? in order to comment this out?
     words_list = words_list[0].split(' ') #comment this line out if you use a words.txt file with each word on a new line
     secret_word = random.choice(words_list)
     return secret_word
+
+    # A word is being chosen for the game.
+    # Step 1: display intro, ie: "Welcome to Spaceman!"; "The secret word contains (x) of letters" 
 
 def is_word_guessed(secret_word, letters_guessed):
     '''
@@ -27,6 +31,18 @@ def is_word_guessed(secret_word, letters_guessed):
     Returns: 
         bool: True only if all the letters of secret_word are in letters_guessed, False otherwise
     '''
+    # Step 1: Have the user enter a letter.
+
+    # Step 2: Once that letter is entered,  display text that will either say if that letter is in the secret word, or is not in the secret word.
+
+    # Step 3: Display text, based off of how many wrong guesses they have left. 
+
+    # Step 4: Display what letters they have they have correct.
+
+    # Step 5: Display what letters have not been guessed yet.
+
+    # Step 6: Repeat these steps, for each letter guessed, until the user has gotten the word, or went through all their number of wrong guesses.
+    
     # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
     pass
 
@@ -46,6 +62,11 @@ def get_guessed_word(secret_word, letters_guessed):
 
     pass
 
+# This is where step 4 and step 5 come into play.
+
+# Step 4: Display what letters they have they have correct.
+
+# Step 5: Display what letters have not been guessed yet.
 
 def is_guess_in_word(guess, secret_word):
     '''
@@ -63,7 +84,9 @@ def is_guess_in_word(guess, secret_word):
 
     pass
 
+# This is where step 6 comes into play:
 
+# Step 6: Repeat these steps, for each letter guessed, until the user has gotten the word, or went through all their number of wrong guesses.
 
 
 def spaceman(secret_word):
@@ -75,6 +98,7 @@ def spaceman(secret_word):
 
     '''
 
+# Follow all to-do's.
 
     #TODO: show the player information about the game according to the project spec
 
