@@ -142,6 +142,10 @@ def spaceman(secret_word):
 
         guess = input("Please guess a letter: ").lower()
 
+    # You've gotten it to display "You have 7 lives left, the guessed letters, and the Please enter a letter."
+    # Next steps: How do I get it to input the letters, I guess and change how many lives are left, when the user inputs something?
+
+
     #TODO: Check if the guessed letter is in the secret or not and give the player feedback
 
     #TODO: show the guessed word so far
