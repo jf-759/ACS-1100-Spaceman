@@ -44,7 +44,16 @@ def is_word_guessed(secret_word, letters_guessed):
     # Step 6: Repeat these steps, for each letter guessed, until the user has gotten the word, or went through all their number of wrong guesses.
     
     # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
-    pass
+
+    for letter in secret_word:
+
+        return True
+
+    if letter not in letters_guessed:
+
+        return False
+     
+ 
 
 def get_guessed_word(secret_word, letters_guessed):
     '''
@@ -60,7 +69,19 @@ def get_guessed_word(secret_word, letters_guessed):
 
     #TODO: Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
 
-    pass
+    guessed_word = ''
+    for letter in secret_word:
+        
+        if letter in letters_guessed:
+            
+            guessed_word += letter
+        
+        else:
+            
+            guessed_word += '_'
+    
+    return guessed_word
+
 
 # This is where step 4 and step 5 come into play.
 
