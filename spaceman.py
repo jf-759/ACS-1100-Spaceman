@@ -46,12 +46,12 @@ def is_word_guessed(secret_word, letters_guessed):
     # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
 
     for letter in secret_word:
+        # comment for new developer: you cannot put return True on this line because it will be incorrect since more letters have to be guessed.
+        if letter not in letters_guessed:
 
-        return True
-
-    if letter not in letters_guessed:
-
-        return False
+            return False
+   
+    return True
      
  
 
@@ -70,6 +70,7 @@ def get_guessed_word(secret_word, letters_guessed):
     #TODO: Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
 
     guessed_word = ''
+   
     for letter in secret_word:
         
         if letter in letters_guessed:
@@ -94,7 +95,8 @@ def is_guess_in_word(guess, secret_word):
     A function to check if the guessed letter is in the secret word
 
     Args:
-        guess (string): The letter the player guessed this round
+        guess (string): The letter the player guessed this
+          round
         secret_word (string): The secret word
 
     Returns:
@@ -103,7 +105,7 @@ def is_guess_in_word(guess, secret_word):
     '''
     #TODO: check if the letter guess is in the secret word
 
-    pass
+    return guess in secret_word
 
 # This is where step 6 comes into play:
 
@@ -123,7 +125,22 @@ def spaceman(secret_word):
 
     #TODO: show the player information about the game according to the project spec
 
+    lives = 7
+
+    letters_guessed = []
+
+    print(f"Hello! This is Spaceman! An interactive game, where you must figure out the secret word.\n")
+    print(f"The Secret word contains {len(secret_word)} letters.")
+
     #TODO: Ask the player to guess one letter per round and check that it is only one letter
+
+    while lives > 0 and not is_word_guessed(secret_word, letters_guessed):
+        
+        print(f"\nYou have {lives} lives left.")
+        
+        print (f"Guessed letters so far: {get_guessed_word(secret_word, letters_guessed)}")
+
+        guess = input("Please guess a letter: ").lower()
 
     #TODO: Check if the guessed letter is in the secret or not and give the player feedback
 
