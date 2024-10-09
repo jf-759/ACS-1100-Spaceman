@@ -1,5 +1,8 @@
 import random
 
+letters_guessed = [] #list to store guessed letters
+guesses_left = 0 #this determines the variable
+
 def load_word():
     '''
     A function that reads a text file of words and randomly selects one to use as the secret word
@@ -43,17 +46,19 @@ def is_word_guessed(secret_word, letters_guessed):
 
     # Step 6: Repeat these steps, for each letter guessed, until the user has gotten the word, or went through all their number of wrong guesses.
     
-    # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
+    # Loops through the letters in the secret_word and check if a letter is not in lettersGuessed
 
-    for letter in secret_word:
-        # comment for new developer: you cannot put return True on this line because it will be incorrect since more letters have to be guessed.
-        if letter not in letters_guessed:
-
-            return False
-   
-    return True
-     
- 
+    user_guess = ""
+    
+    for letter in range(len(secret_word)):
+       
+        if secret_word[letter] in letters_guessed:
+            user_guess += secret_word[letter]
+        
+    if secret_word == user_guess:
+        return True
+    else:
+        return False
 
 def get_guessed_word(secret_word, letters_guessed):
     '''
@@ -67,7 +72,7 @@ def get_guessed_word(secret_word, letters_guessed):
         string: letters and underscores.  For letters in the word that the user has guessed correctly, the string should contain the letter at the correct position.  For letters in the word that the user has not yet guessed, shown an _ (underscore) instead.
     '''
 
-    #TODO: Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
+    # Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
 
     guessed_word = ''
    
@@ -75,7 +80,7 @@ def get_guessed_word(secret_word, letters_guessed):
         
         if letter in letters_guessed:
             
-            guessed_word += letter
+            guessed_word += letter + ""
         
         else:
             
@@ -108,13 +113,35 @@ def is_guess_in_word(guess, secret_word):
     # secret_word = cat, guess = a or guess = z valid vs invalid
     # user input two letters, a message shows up as 'please only use one letter'
     
-    #TODO: check if the letter guess is in the secret word
-
-    return guess in secret_word
+    # check if the letter guess is in the secret word
+    if guess in secret_word: 
+        print("Yay! Your guess is in the secret word!")
+        return True
+    else:
+        print("Darn, your guess was not in the word, try again!")
+        return False
 
 # This is where step 6 comes into play:
 
 # Step 6: Repeat these steps, for each letter guessed, until the user has gotten the word, or went through all their number of wrong guesses.
+
+def alphabet_storage(guess, alphabet):
+    if guess in alphabet:
+        alphabet.remove(guess)
+    else:
+        pass
+    print(f"\nHere are the letters that have not been guessed yet!: {alphabet}")
+
+def end_game():
+
+    letters_guessed.clear()
+    another_round = input("Do you want to play again? (Y/N): ").lower()
+    if another_round == 'y':
+        print("\n")
+        secret_word = load_word()
+        spaceman(secret_word, 7)
+    else:
+        print("\n Thank you for playing! Hope you enjoyed the game! ")
 
 
 def spaceman(secret_word):
