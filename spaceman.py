@@ -103,6 +103,11 @@ def is_guess_in_word(guess, secret_word):
         bool: True if the guess is in the secret_word, False otherwise
 
     '''
+
+    # make the secret_word = banana, guess = b
+    # secret_word = cat, guess = a or guess = z valid vs invalid
+    # user input two letters, a message shows up as 'please only use one letter'
+    
     #TODO: check if the letter guess is in the secret word
 
     return guess in secret_word
@@ -130,7 +135,7 @@ def spaceman(secret_word):
     letters_guessed = []
 
     print(f"Hello! This is Spaceman! An interactive game, where you must figure out the secret word.\n")
-    print(f"The Secret word contains {len(secret_word)} letters.")
+    print(f"The secret word contains {len(secret_word)} letters.")
 
     #TODO: Ask the player to guess one letter per round and check that it is only one letter
 
@@ -148,9 +153,21 @@ def spaceman(secret_word):
 
     #TODO: Check if the guessed letter is in the secret or not and give the player feedback
 
+    for guess in secret_word:
+        return guess in secret_word
+    else:
+        guess not in secret_word
+        print(f"\nYou have {lives} lives left.")
+        print(f"Guessed letters so far: {get_guessed_word(secret_word, letters_guessed)}")
+        
+
     #TODO: show the guessed word so far
 
+    for guess in secret_word:
+        print(f"Guessed letters so far: {get_guessed_word(secret_word, letters_guessed)}")
     #TODO: check if the game has been won or lost
+
+    
 
 
 
